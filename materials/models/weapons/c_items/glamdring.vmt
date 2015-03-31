@@ -1,0 +1,45 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "models\weapons\c_items\glamdring"
+	"$bumpmap" "models\weapons\c_items\glamdring_nrm"
+
+	"$phong" "1"
+	"$phongexponent" "25"
+	"$phongboost" "2.5"	
+	
+	"$phongfresnelranges"	"[.25 .5 20]"
+	"$halflambert" "1"
+
+	
+	
+	// Rim lighting parameters
+	"$rimlight" "1"					
+	"$rimlightexponent" "4"		
+	"$rimlightboost" "2"
+
+
+	"$glowcolor" "1"
+
+	// Cloaking
+	"$cloakPassEnabled" "1"
+	"Proxies"
+	{
+		"invis"
+		{
+		}
+		"ModelGlowColor"
+		{
+			"resultVar" "$glowcolor"
+		}
+		"Equals"
+		{
+			"srcVar1"  "$glowcolor"
+			"resultVar" "$selfillumtint"
+		}
+		"Equals"
+		{
+			"srcVar1"  "$glowcolor"
+			"resultVar" "$color2"
+		}
+	}
+}
