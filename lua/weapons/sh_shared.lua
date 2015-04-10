@@ -46,6 +46,7 @@ function one_ring_effect()
 	local ply = LocalPlayer()
 	if ply:GetNWBool("eye_effect") then return end
 	if not ply:GetNWBool("usingring") then return end
+	if not ply:Alive() then ply:SetNWBool("usingring", false) return end
 		
 		draw.RoundedBox(2, 0, 0, ScrW() + 1, ScrH() + 1, Color(255,255,255,100))
 		surface.SetMaterial(Material("models/props_combine/tpballglow"))
@@ -56,6 +57,7 @@ hook.Add("HUDPaint", "one_ring_effect", one_ring_effect)
 
 function one_ring_eye_effect()
 	local ply = LocalPlayer()
+	if not ply:Alive() then ply:SetNWBool("eye_effect", false) return end
 	if not ply:GetNWBool("eye_effect") then return end
 			surface.SetDrawColor( 255, 255, 255, 255 )
 			surface.SetMaterial( Material("lotr_sweps/sauron_eye.png") ) -- If you use Material, cache it!
